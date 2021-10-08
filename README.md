@@ -11,9 +11,10 @@ Project compatible with unix based operating systems. Written in Ubuntu 20.x.
 * gcc compiler
 * gnu make
 * build-essential
+* gnu plot
 
 ```bash
-sudo apt install gcc build-essential make
+sudo apt install gcc build-essential make gnuplot
 ```
 <!-- 
 ## ✔️ Configuration
