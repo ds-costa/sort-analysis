@@ -1,8 +1,8 @@
-# 🔢 Project name
+# 🔢 Sort Analysis
 
-Insert some description. And one image.
-
-![Preview](public/img/screenshot.png)
+Sort algorithms analysis with graph plots.
+<!-- 
+![Preview](public/img/screenshot.png) -->
 
 ## ✔️ Requirements
 
