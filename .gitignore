@@ -4,6 +4,7 @@ build
 /build
 main
 bin
+runtests
 lib
 obj
 
