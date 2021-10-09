@@ -1,6 +1,9 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <stdbool.h>
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(array[0]))
