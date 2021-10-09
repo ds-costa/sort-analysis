@@ -31,6 +31,9 @@ void arr_print_int( int arr_len, int *arr);
  */
 void arr_random_fill_int(int low, int high, int arr_len, int *arr);
 
+void arr_fill_in_ascending_order(int arr_len, int *arr);
+
+void arr_fill_in_descending_order(int arr_len, int *arr);
 
 
 /**
