@@ -56,6 +56,12 @@ void arr_fill_in_descending_order(int arr_len, int *arr) {
     return;
 }
 
+void arr_copy(int arr_len, int *arr_src, int *arr_dest) {
+    memcpy(arr_dest, arr_src, arr_len * sizeof(int));
+    return;
+}
+
+
 
 /**
  * function: arr_is_array_sorted

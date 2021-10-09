@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <stdbool.h>
 
@@ -38,6 +39,7 @@ void arr_fill_in_ascending_order(int arr_len, int *arr);
 
 void arr_fill_in_descending_order(int arr_len, int *arr);
 
+void arr_copy(int arr_len, int *arr_src, int *arr_dest);
 
 /**
  * function: arr_is_array_sorted
