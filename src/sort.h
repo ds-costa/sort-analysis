@@ -6,6 +6,14 @@
 #ifndef SORT_H
 #define SORT_H
 
+#define swap_int(a, b) {\
+        int aux = a;\
+        a = b;\
+        b = aux;\
+    }
+
+
+
 /**
  * function: insertion_sort
  * Insertion sort implementation
