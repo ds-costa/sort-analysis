@@ -39,6 +39,39 @@ void merge_sort( int arr_len, int *arr ) {
     return;
 }
 
+
+static int _quick_sort_partition(int low, int high, int *arr) {
+
+    // rightmost element
+    int pivot = arr[high];
+    int greater_element_index = (low - 1);
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            greater_element_index++;      
+            swap_int(&arr[greater_element_index], &arr[j]);
+        }
+    }
+
+    swap_int(&arr[greater_element_index + 1], &arr[high]);
+    
+    int partition_point = (greater_element_index + 1);
+
+    return partition_point;
+}
+
+static void _quick_sort(int low, int high, int *arr) {
+    if (low < high) {
+        // find the pivot element
+        int pivot = _quick_sort_partition(low, high, arr);
+        // recursive call, left of pivot
+        _quick_sort(low, pivot - 1, arr);
+        // recursive call, of pivot
+        _quick_sort(pivot + 1, high, arr);
+    }
+    return;
+}
+
 /**
  * function: quick_sort
  * Quick sort implementation
@@ -46,7 +79,9 @@ void merge_sort( int arr_len, int *arr ) {
  * @param high, Array superior bound
  * @param array, Integer array reference
  */
-void quick_sort(int low, int high, int *arr) {
+void quick_sort(int arr_len, int *arr) {
+    // inclusive range [0, len-1]
+    _quick_sort(0, arr_len - 1, arr);
     return;
 }
 

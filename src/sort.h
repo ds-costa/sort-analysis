@@ -6,10 +6,14 @@
 #ifndef SORT_H
 #define SORT_H
 
+#include <string.h>
+#include <stdlib.h>
+#include "array.h"
+
 #define swap_int(a, b) {\
-        int aux = a;\
-        a = b;\
-        b = aux;\
+        int aux = *a;\
+        *a = *b;\
+        *b = aux;\
     }
 
 
@@ -45,7 +49,7 @@ void merge_sort( int arr_len, int *arr );
  * @param high, Array superior bound
  * @param array, Integer array reference
  */
-void quick_sort(int low, int high, int *arr);
+void quick_sort(int arr_len, int *arr);
 
 /**
  * function: bucket_sort

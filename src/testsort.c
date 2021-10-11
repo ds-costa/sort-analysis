@@ -3,7 +3,7 @@
 static const char* test_insertion_sort() {
     
 
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
@@ -30,7 +30,7 @@ static const char* test_insertion_sort() {
 }
 
 static const char* test_shell_sort() {
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
@@ -57,7 +57,7 @@ static const char* test_shell_sort() {
 }
 
 static const char* test_merge_sort() {
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
@@ -84,7 +84,7 @@ static const char* test_merge_sort() {
 }
 
 static const char* test_quick_sort() {
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
@@ -93,17 +93,17 @@ static const char* test_quick_sort() {
     arr_fill_in_ascending_order(arr_len, test_case_2);
     arr_fill_in_descending_order(arr_len, test_case_3);
 
-    quick_sort(0, arr_len, test_case_1);
+    quick_sort(arr_len, test_case_1);
 
     if(arr_is_array_sorted(arr_len, test_case_1) == false) {
         return "TEST CASE 1[QUICK_SORT]: FAIL";
     }
-    quick_sort(0, arr_len, test_case_2);
+    quick_sort(arr_len, test_case_2);
     
     if(arr_is_array_sorted(arr_len, test_case_2) == false) {
         return "TEST CASE 2[QUICK_SORT]: FAIL";
     }
-    quick_sort(0, arr_len, test_case_3);
+    quick_sort(arr_len, test_case_3);
     if(arr_is_array_sorted(arr_len, test_case_3) == false) {
         return "TEST CASE 3[QUICK_SORT]: FAIL";
     }
@@ -111,7 +111,7 @@ static const char* test_quick_sort() {
 }
 
 static const char* test_bucket_sort() {
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
@@ -138,7 +138,7 @@ static const char* test_bucket_sort() {
 }
 
 static const char* test_counting_sort() {
-    int arr_len = 1000;
+    int arr_len = 1024;;
     int test_case_1[arr_len];
     int test_case_2[arr_len];
     int test_case_3[arr_len];
