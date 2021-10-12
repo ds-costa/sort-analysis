@@ -26,6 +26,18 @@ void insertion_sort(int arr_len, int *arr) {
  * @param array, Integer array reference
  */
 void shell_sort( int arr_len, int *arr ) {
+    for (int gap = arr_len / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < arr_len; i++) {
+            //adpated insertion sort with gap
+            int aux = arr[i];
+            int j = i;
+            while(j >= gap && arr[j - gap] > aux) {
+               arr[j] = arr[j - gap];
+                j -= gap;
+            }
+           arr[j] = aux;
+        }
+    }
     return;
 }
 
