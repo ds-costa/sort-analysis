@@ -47,4 +47,7 @@ void arr_copy(int arr_len, int *arr_src, int *arr_dest);
  */
 bool arr_is_array_sorted(int arr_len, int *arr);
 
+
+int arr_get_greater_element(int arr_len, int *arr);
+
 #endif

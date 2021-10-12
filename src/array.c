@@ -78,3 +78,14 @@ bool arr_is_array_sorted(int arr_len, int *arr) {
     }
     return true;
 }
+
+int arr_get_greater_element(int arr_len, int *arr) {
+    int greater_element = arr[0];
+    for(int i = 1; i < arr_len; i++) {
+        if(arr[i] > greater_element) {
+            greater_element = arr[i];
+        }
+    }
+
+    return greater_element;
+}
