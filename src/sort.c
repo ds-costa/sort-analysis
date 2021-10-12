@@ -29,13 +29,74 @@ void shell_sort( int arr_len, int *arr ) {
     return;
 }
 
+static void _merge_sort_merge(int low, int mid, int high, int *arr) {
+    
+    int i = 0;
+    int j = 0;
+    int k = low;
+
+    int first_half_len = mid - low + 1;
+    int second_half_len = high - mid;
+
+    int *first_half_arr = malloc(sizeof(int) * first_half_len);
+    int *second_half_arr = malloc(sizeof(int) * second_half_len);
+
+    for(int i = 0; i < first_half_len; i++) {
+        first_half_arr[i] = arr[low + i];
+    }
+
+    for(int j = 0; j < second_half_len; j++) {
+        second_half_arr[j] = arr[mid + 1 + j];
+    }
+
+    while(i < first_half_len && j < second_half_len) {
+        if(first_half_arr[i] <= second_half_arr[j]) {
+            arr[k] = first_half_arr[i];
+            i++;
+        } 
+        else {
+            arr[k] = second_half_arr[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < first_half_len) {
+        arr[k] = first_half_arr[i];
+        i++;
+        k++;
+    }
+
+    while(j < second_half_len) {
+        arr[k] = second_half_arr[j];
+        j++;
+        k++;
+    }
+
+    free(first_half_arr);
+    free(second_half_arr);
+    return;
+}
+
+static void _merge_sort(int low, int high, int *arr) {
+    if(low < high) {
+        int mid = low + (high - low) / 2;
+        _merge_sort(low, mid, arr);
+        _merge_sort(mid + 1, high, arr);
+        _merge_sort_merge(low, mid, high, arr);
+    }
+    return;
+}
+
 /**
  * function: insertion_sort
  * Insertion sort implementation
  * @param arr_len, Array length
  * @param array, Integer array reference
  */
-void merge_sort( int arr_len, int *arr ) {
+void merge_sort(int arr_len, int *arr) {
+    _merge_sort(0, arr_len - 1, arr);
+    // mergeSort(arr, 0, arr_len - 1);
     return;
 }
 
