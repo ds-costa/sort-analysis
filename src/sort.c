@@ -175,5 +175,23 @@ void bucket_sort( int arr_len, int *arr ) {
  * @param array, Integer array reference
  */
 void counting_sort( int arr_len, int *arr ) {
+    
+    int max = arr_get_greater_element(arr_len, arr);
+    int count_range = max + 1;
+
+    int *count = malloc(sizeof(*arr) * count_range);
+    memset(count, 0, count_range);
+
+    for(int i = 0; i < arr_len; i++) {
+        count[arr[i]]++;
+    }
+
+    for(int i = 0, z = 0; i <= max; i++) {
+        for(int j = 0; j < count[i]; j++) {
+            arr[z++] = i;
+        }
+    } 
+
+    free(count);
     return;
 }
