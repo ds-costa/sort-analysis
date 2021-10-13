@@ -34,7 +34,7 @@ all: $(BINS)
 
 
 $(BINS): $(OBJ) $(BIN) $(LIB) $(OBJS) $(LIBS)
-	$(CC) $(OBJS) main.c $(CFLAGS) -o $@
+	$(CC) $(OBJS) main.c $(CFLAGS) -D_POSIX_C_SOURCE=199309L -o $@
 	$(CC) $(OBJS) test.c $(CFLAGS) -o bin/runtests
 
 $(OBJ):
