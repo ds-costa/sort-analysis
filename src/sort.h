@@ -9,6 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "array.h"
+#include "linkedlist.h"
 
 #define swap_int(a, b) {\
         int aux = *a;\

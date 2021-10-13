@@ -165,8 +165,53 @@ void quick_sort(int arr_len, int *arr) {
  * @param array, Integer array reference
  */
 void bucket_sort( int arr_len, int *arr ) {
+
+
+    int max_value = arr_get_greater_element(arr_len, arr); //start with first element
+    int min_value = arr[0];
+
+    for (int i = 1; i < arr_len; i++) {
+        if (arr[i] < min_value) {
+            min_value = arr[i];
+        }
+    }
+
+    // 1) Create n empty buckets
+    int bucket_len = (max_value - min_value) + 1;
+    LinkedList **buckets = malloc(sizeof(LinkedList *) * bucket_len);
+    for (int i = 0; i < bucket_len; i++) {
+        buckets[i] = new_linked_list();
+    }
+
+    // 2) Put array elements in different buckets
+    for(int i = 0; i < arr_len; i++) {
+        int hash = (arr[i] - min_value) / bucket_len;
+        list_append(&buckets[hash], new_node(arr[i]));
+    }
+
+    // 3) Sort individual buckets
+    for (int i = 0; i < bucket_len; i++) {
+        list_sort(&buckets[i]);
+    }
+ 
+    // 4) Concatenate all buckets into arr[]
+    int index = 0;
+    for(int i = 0; i < arr_len; i++) {
+        Node *aux = buckets[i]->head;
+        while(aux != NULL) {
+            arr[index] = aux->data;
+            aux = aux->next;
+            index++;
+        }
+    }
+
+    for(int i = 0; i < bucket_len; i++) {
+        list_delete(&buckets[i]);
+    }
     return;
 }
+
+
 
 /**
  * function: quick_sort
@@ -175,10 +220,9 @@ void bucket_sort( int arr_len, int *arr ) {
  * @param array, Integer array reference
  */
 void counting_sort( int arr_len, int *arr ) {
-    
     int max = arr_get_greater_element(arr_len, arr);
     int count_range = max + 1;
-
+    
     int *count = malloc(sizeof(*arr) * count_range);
     memset(count, 0, count_range);
 
@@ -191,7 +235,6 @@ void counting_sort( int arr_len, int *arr ) {
             arr[z++] = i;
         }
     } 
-
     free(count);
     return;
 }
