@@ -8,7 +8,8 @@
 #include "src/testsort.h"
 
 int main(int argc, char **argv) {
-
+    
+    srand(time(NULL));
     printf("UNIT TESTS: SORTS\n");
     run_sort_tests();
     
