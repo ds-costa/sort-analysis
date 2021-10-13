@@ -151,7 +151,7 @@ static const char* test_counting_sort() {
     if(arr_is_array_sorted(arr_len, test_case_1) == false) {
         return "TEST CASE 1[COUNTING_SORT]: FAIL";
     }
-    
+
     counting_sort(arr_len, test_case_2);
     if(arr_is_array_sorted(arr_len, test_case_2) == false) {
         return "TEST CASE 2[COUNTING_SORT]: FAIL";
@@ -169,7 +169,7 @@ void run_sort_tests() {
     printf("%s\n", test_shell_sort());
     printf("%s\n", test_merge_sort());
     printf("%s\n", test_quick_sort());
-    printf("%s\n", test_bucket_sort());
     printf("%s\n", test_counting_sort());
+    printf("%s\n", test_bucket_sort());
     return;
 }
