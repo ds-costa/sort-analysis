@@ -29,8 +29,8 @@ BINS := $(BIN)/app
 .PHONY: all clean
 
 all: $(BINS)
-	@echo "\n# ====================== #\n# Type ./bin/app to run. #\n# ====================== #\n"
-	@echo "\n# ==================================== #\n# Type ./bin/runtests to perform the tests. #\n# ===================================== #"
+	@echo "\nType [./bin/app <insertion | shell | merge | quick | bucket | counting> <r | a | d> <array_size>] to run.\n"
+	@echo "Type ./bin/runtests to perform the tests.\n"
 
 
 $(BINS): $(OBJ) $(BIN) $(LIB) $(OBJS) $(LIBS)
