@@ -60,4 +60,7 @@ void list_print(LinkedList  *list);
  * @param list, linked list reference
  */
 void list_delete(LinkedList **list);
+
+
+void list_sort(LinkedList **list);
 #endif

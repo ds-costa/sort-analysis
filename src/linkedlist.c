@@ -52,6 +52,7 @@ void list_append(LinkedList **list, Node *new_node)
     else
     {
         (*list)->tail->next = new_node;
+        new_node->prev = (*list)->tail;
         (*list)->tail = new_node;
     }
     (*list)->length++;
@@ -132,4 +133,26 @@ void list_delete(LinkedList **list)
 
     (*list)->head = (*list)->tail = NULL;
     (*list)->length = 0;
+}
+void list_sort(LinkedList **list) 
+{
+    if((*list)->head == NULL || (*list)->head->next == NULL) {
+        return;
+    }
+    Node *head = (*list)->head;
+    Node *back = NULL;
+    while(head != NULL) {
+        back = head->next;
+        while(back != NULL && back->prev != NULL && back->data < back->prev->data) {
+            //swap
+            int aux = back->data;
+            back->data = back->prev->data;
+            back->prev->data = aux;
+            //
+            back = back->prev;
+        }
+        head = head->next;
+    }
+        
+    return;
 }
