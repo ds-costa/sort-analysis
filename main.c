@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
             arr_random_fill_int(0, 100000, arr_len, arr);
             break;
     }
-
+    
     if(strcmp("insertion", argv[1]) == 0) {
         clock_gettime(CLOCK_MONOTONIC, &timer.start);
         insertion_sort(arr_len, arr);
