@@ -7,7 +7,8 @@ bin
 runtests
 lib
 obj
-
+benchmark
+benchmarks
 # Created by https://www.gitignore.io/api/c,code
 # Edit at https://www.gitignore.io/?templates=c,code
 
