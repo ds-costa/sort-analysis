@@ -37,7 +37,7 @@ do
                 elapsed_time=$(($elapsed_time + $et))
                 actual_test=$((actual_test + 1))
             done
-            elapsed_time_avg=$(bc <<< "scale=2;$elapsed_time/10.0")
+            elapsed_time_avg=$(bc <<< "scale=0;$elapsed_time/10")
             echo $n $elapsed_time_avg
             printf "%d %.0f\n" $n $elapsed_time_avg >> benchmarks/$sort/$_case.txt  
 
