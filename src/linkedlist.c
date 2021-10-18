@@ -143,7 +143,7 @@ void list_sort(LinkedList **list)
     Node *back = NULL;
     while(head != NULL) {
         back = head->next;
-        while(back != NULL && back->prev != NULL && back->data < back->prev->data) {
+        while(back->data < back->prev->data && back != NULL && back->prev != NULL) {
             //swap
             int aux = back->data;
             back->data = back->prev->data;

@@ -89,3 +89,15 @@ int arr_get_greater_element(int arr_len, int *arr) {
 
     return greater_element;
 }
+
+int arr_get_lesser_element(int arr_len, int *arr) {
+    int lesser_element = arr[0];
+
+    for (int i = 1; i < arr_len; i++) {
+        if (arr[i] < lesser_element) {
+            lesser_element = arr[i];
+        }
+    }
+
+    return lesser_element;
+}

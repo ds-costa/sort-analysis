@@ -168,13 +168,7 @@ void bucket_sort( int arr_len, int *arr ) {
 
 
     int max_value = arr_get_greater_element(arr_len, arr); //start with first element
-    int min_value = arr[0];
-
-    for (int i = 1; i < arr_len; i++) {
-        if (arr[i] < min_value) {
-            min_value = arr[i];
-        }
-    }
+    int min_value = arr_get_lesser_element(arr_len, arr);
 
     // 1) Create n empty buckets
     int bucket_len = (max_value - min_value) + 1;

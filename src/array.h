@@ -49,5 +49,7 @@ bool arr_is_array_sorted(int arr_len, int *arr);
 
 
 int arr_get_greater_element(int arr_len, int *arr);
+int arr_get_lesser_element(int arr_len, int *arr);
+
 
 #endif
