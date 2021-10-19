@@ -8,13 +8,13 @@ Sort algorithms analysis with graph plots.
 
 Project compatible with unix based operating systems. Written in Ubuntu 20.x.
 
-* gcc compiler
+* g++ compiler
 * gnu make
 * build-essential
 * gnu plot
 
 ```bash
-sudo apt install gcc build-essential make gnuplot
+sudo apt install g++ build-essential make gnuplot
 ```
 ## How to build
 
