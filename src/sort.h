@@ -8,8 +8,11 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>    // std::sort
+#include <math.h>
 #include "array.h"
-#include "linkedlist.h"
 
 #define swap_int(a, b) {\
         int aux = *a;\

@@ -101,3 +101,19 @@ int arr_get_lesser_element(int arr_len, int *arr) {
 
     return lesser_element;
 }
+
+void arr_file_read(int arr_len, int *arr, const char *path) {
+    FILE *fp = fopen(path, "r");
+    for(int i = 0; i < arr_len - 1; i++) {
+        fscanf(fp, "%d\n", &arr[i]);
+    }
+    fscanf(fp, "%d", &arr[arr_len - 1]);
+}
+
+void arr_file_write(int arr_len, int *arr, const char *path) {
+    FILE *fp = fopen(path, "w");
+    for(int i = 0; i < arr_len - 1; i++) {
+        fprintf(fp, "%d\n", arr[i]);
+    }
+    fprintf(fp, "%d", arr[arr_len - 1]);
+}

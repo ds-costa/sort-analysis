@@ -51,5 +51,9 @@ bool arr_is_array_sorted(int arr_len, int *arr);
 int arr_get_greater_element(int arr_len, int *arr);
 int arr_get_lesser_element(int arr_len, int *arr);
 
+void arr_file_read(int arr_len, int *arr, const char *path);
+
+void arr_file_write(int arr_len, int *arr, const char *path);
+
 
 #endif

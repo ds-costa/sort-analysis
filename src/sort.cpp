@@ -50,8 +50,8 @@ static void _merge_sort_merge(int low, int mid, int high, int *arr) {
     int first_half_len = mid - low + 1;
     int second_half_len = high - mid;
 
-    int *first_half_arr = malloc(sizeof(int) * first_half_len);
-    int *second_half_arr = malloc(sizeof(int) * second_half_len);
+    int *first_half_arr = (int *) malloc(sizeof(int) * first_half_len);
+    int *second_half_arr = (int *) malloc(sizeof(int) * second_half_len);
 
     for(int i = 0; i < first_half_len; i++) {
         first_half_arr[i] = arr[low + i];
@@ -166,42 +166,30 @@ void quick_sort(int arr_len, int *arr) {
  */
 void bucket_sort( int arr_len, int *arr ) {
 
-
     int max_value = arr_get_greater_element(arr_len, arr); //start with first element
-    int min_value = arr_get_lesser_element(arr_len, arr);
 
-    // 1) Create n empty buckets
-    int bucket_len = (max_value - min_value) + 1;
-    LinkedList **buckets = malloc(sizeof(LinkedList *) * bucket_len);
-    for (int i = 0; i < bucket_len; i++) {
-        buckets[i] = new_linked_list();
-    }
+    int bucket_len = 10;
+    int bucket_range = ceil((float)(max_value + 1) / bucket_len);
 
-    // 2) Put array elements in different buckets
+    std::vector<int> buckets[bucket_len];
+
     for(int i = 0; i < arr_len; i++) {
-        int hash = (arr[i] - min_value) / bucket_len;
-        list_append(&buckets[hash], new_node(arr[i]));
+        int hash = floor(arr[i] / bucket_range);
+        buckets[hash].push_back(arr[i]);
     }
 
-    // 3) Sort individual buckets
     for (int i = 0; i < bucket_len; i++) {
-        list_sort(&buckets[i]);
+       std::sort(buckets[i].begin(), buckets[i].end());
     }
- 
-    // 4) Concatenate all buckets into arr[]
+
     int index = 0;
-    for(int i = 0; i < arr_len; i++) {
-        Node *aux = buckets[i]->head;
-        while(aux != NULL) {
-            arr[index] = aux->data;
-            aux = aux->next;
+    for(int i = 0; i < bucket_len; i++) {
+        for(int j = 0; j < buckets[i].size(); j++) {
+            arr[index] = buckets[i][j];
             index++;
         }
     }
 
-    for(int i = 0; i < bucket_len; i++) {
-        list_delete(&buckets[i]);
-    }
     return;
 }
 
@@ -217,7 +205,7 @@ void counting_sort( int arr_len, int *arr ) {
     int max = arr_get_greater_element(arr_len, arr);
     int count_range = max + 1;
     
-    int *count = malloc(sizeof(*arr) * count_range);
+    int *count = (int *) malloc(sizeof(*arr) * count_range);
     memset(count, 0, count_range);
 
     for(int i = 0; i < arr_len; i++) {

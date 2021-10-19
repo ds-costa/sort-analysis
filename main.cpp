@@ -3,10 +3,10 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
+#include <iostream>
 #include <unistd.h>
 
 #include "src/array.h"
-#include "src/linkedlist.h"
 #include "src/timer.h"
 #include "src/sort.h"
 
@@ -27,11 +27,19 @@ int main(int argc, char **argv) {
     }; 
 
     int arr_len = atoi(argv[3]);
-    int *arr = malloc(sizeof(int) * arr_len);
+    int *arr = (int *) malloc(sizeof(int) * arr_len);
 
     switch((char) argv[2][0]) {
         case 'r':
-            arr_random_fill_int(0, 100000, arr_len, arr);
+            // generate random array and write in file in first execution
+            if(atoi(argv[4]) == 1) {
+                arr_random_fill_int(0, 100000, arr_len, arr);
+                arr_file_write(arr_len, arr, std::string("temp.arr").c_str());
+            }
+            // read from file in the next 9
+            else {
+                arr_file_read(arr_len, arr, std::string("temp.arr").c_str());
+            }
             break;
 
         case 'a':
