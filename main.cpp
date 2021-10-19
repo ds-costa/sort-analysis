@@ -32,14 +32,7 @@ int main(int argc, char **argv) {
     switch((char) argv[2][0]) {
         case 'r':
             // generate random array and write in file in first execution
-            if(atoi(argv[4]) == 1) {
-                arr_random_fill_int(0, 100000, arr_len, arr);
-                arr_file_write(arr_len, arr, std::string("temp.arr").c_str());
-            }
-            // read from file in the next 9
-            else {
-                arr_file_read(arr_len, arr, std::string("temp.arr").c_str());
-            }
+            arr_random_fill_int(0, 100000, arr_len, arr);
             break;
 
         case 'a':
