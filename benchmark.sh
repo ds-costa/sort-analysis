@@ -34,7 +34,7 @@ do
             for i in {1..10}
             do
                 printf "TEST[%d / %d]: %s %s %s\n" $actual_test $number_of_test $sort $n $_case
-                et=$(./bin/app $sort $_case $n $i)
+                et=$(./bin/app $sort $_case $n)
                 elapsed_time=$(($elapsed_time + $et))
                 actual_test=$((actual_test + 1))
             done
