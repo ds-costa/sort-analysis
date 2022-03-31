@@ -1,6 +1,6 @@
 # 🔢 Sort Analysis
 
-Sort algorithms analysis with graph plots.
+A command-line tool for analyzing the performance of popular sorting algorithms with graph plots.
 <!-- 
 ![Preview](public/img/screenshot.png) -->
 
