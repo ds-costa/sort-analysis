@@ -28,7 +28,7 @@ make
 $> make clean
 ```
 
-### Usage 
+## Usage 
 
 - Run the app with the proper parameters
     - One Sort algorithm: insertion | shell | merge | quick | bucket | counting
