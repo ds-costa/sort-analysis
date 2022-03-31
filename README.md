@@ -23,17 +23,19 @@ sudo apt install g++ build-essential make gnuplot
 make
 ```
 
+## How to clean the build files
+```bash
+$> make clean
+```
+
+### Usage 
+
 - Run the app with the proper parameters
     - One Sort algorithm: insertion | shell | merge | quick | bucket | counting
     - Case: (r)andom array | (a)scending order array | (d)escending order array
     - Array size: positive integer
 ```bash
 ./bin/app <insertion | shell | merge | quick | bucket | counting> <r | a | d> <array_size>
-```
-
-## How to clean the build files
-```bash
-$> make clean
 ```
 
 ### Usage Example
